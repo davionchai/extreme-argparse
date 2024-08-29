@@ -22,3 +22,8 @@ clean:
 	rm -rf .mypy_cache
 	rm -rf .pytest_cache
 	rm -rf extreme_argparse.egg-info
+
+.PHONY: build
+build:
+	pip install -r requirements_build.txt
+	python setup.py sdist bdist_wheel
