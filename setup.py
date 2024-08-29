@@ -5,15 +5,15 @@ from setuptools import setup
 
 
 package_version: str = "0.0.1"
-min_required_python_version: str = "3.9"
+min_required_python_version: str = "3.11"
 max_supported_python_version: str = "3.12"
 
 package_name: str = "extreme-argparse"
-package_description: str = "next level argparse designed for python apps running in kubernetes"
+package_description: str = "argparse designed for python apps running in kubernetes"
 
 # check python compatible version
 detected_python_version: tuple = sys.version_info
-if detected_python_version < (3, 9):
+if detected_python_version < (3, 11):
     raise OSError(
         f"Error: [{package_name}] version [{package_version}] that you are trying to install does not meet"
         f" the minimum required python runtime version [{min_required_python_version}]"
@@ -45,9 +45,9 @@ setup(
     description=package_description,
     long_description=package_long_description,
     long_description_content_type="text/markdown",
-    author="nearjer poor engineers",
-    author_email="dchai@nearjer.com",
-    url="https://github.com/NearJer/extreme-argparse",
+    author="davionchai",
+    author_email="davionchai@gmail.com",
+    url="https://github.com/davionchai/extreme-argparse",
     packages=find_namespace_packages(include=["eargparse", "eargparse.*"]),
     include_package_data=True,
     python_requires=f">={min_required_python_version}",
@@ -59,6 +59,7 @@ setup(
             "mypy",
             "pre-commit",
             "pytest",
+            "beartype",
         ]
     },
     zip_safe=False,
@@ -66,8 +67,6 @@ setup(
         "Operating System :: Microsoft :: Windows",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: POSIX :: Linux",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
     ],
