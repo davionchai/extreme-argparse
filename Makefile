@@ -14,3 +14,11 @@ init:
 install:
 	$(ENV)/bin/python$(PYTHON_VERSION) -m pip install -r requirements_dev.txt
 
+.PHONY: clean
+clean:
+	rm -rf logs
+	find . -type d -name "__pycache__" -exec rm -rf {} +
+	rm -rf pytest_report.xml
+	rm -rf .mypy_cache
+	rm -rf .pytest_cache
+	rm -rf extreme_argparse.egg-info
